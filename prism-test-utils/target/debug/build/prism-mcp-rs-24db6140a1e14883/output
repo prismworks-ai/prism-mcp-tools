@@ -1,0 +1,4 @@
+cargo:rerun-if-changed=src/
+cargo:rerun-if-changed=Cargo.toml
+cargo:rerun-if-changed=README.md
+cargo:rustc-env=PRISM_MCP_RS_VERSION=0.1.0

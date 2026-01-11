@@ -1,0 +1,53 @@
+[package]
+name = "mcp-inspector"
+version = "0.1.0"
+edition = "2021"
+authors = ["Prismworks AI"]
+description = "Web-based MCP server inspector and testing tool"
+license = "MIT"
+repository = "https://github.com/prismworks-ai/prism-mcp-tools"
+
+[dependencies]
+# Web framework
+axum = { version = "0.7", features = ["ws", "macros"] }
+tokio = { version = "1", features = ["full"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["fs", "cors", "trace"] }
+
+# MCP SDK - commenting out for now since it's not published yet
+# prism-mcp-rs = { git = "https://github.com/prismworks-ai/prism-mcp-rs", features = ["client", "server"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# WebSocket for real-time updates
+tokio-tungstenite = "0.21"
+futures-util = "0.3"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# CLI
+clap = { version = "4.0", features = ["derive"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# UUID for session management
+uuid = { version = "1.0", features = ["v4", "serde"] }
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Open browser
+open = "5.0"
+
+[dev-dependencies]
+axum-test = "14.0"
+
+[[bin]]
+name = "mcp-inspector"
+path = "src/main.rs"

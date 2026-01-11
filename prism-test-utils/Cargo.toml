@@ -1,0 +1,26 @@
+[package]
+name = "prism-test-utils"
+version = "0.1.0"
+edition = "2021"
+authors = ["Prismworks AI <team@prismworks.ai>"]
+license = "MIT"
+description = "Testing utilities for MCP Rust SDK development"
+repository = "https://github.com/prismworks-ai/mcp-rs-dev"
+keywords = ["mcp", "testing", "mock", "utilities", "development"]
+categories = ["development-tools::testing", "development-tools"]
+
+[dependencies]
+prism-mcp-rs = { path = "../../prism-mcp-rs", version = "0.1.0" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.38", features = ["full"] }
+async-trait = "0.1"
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[features]
+default = []
+full = ["memory-transport", "harness"]
+memory-transport = []
+harness = ["memory-transport"]

@@ -1,0 +1,22 @@
+[package]
+name = "http-server"
+version = "0.1.0"
+edition = "2021"
+authors = ["Prismworks AI <team@prismworks.ai>"]
+license = "MIT"
+description = "MCP HTTP Server - Production HTTP/SSE server implementation"
+repository = "https://github.com/prismworks-ai/mcp-rs-dev"
+
+[dependencies]
+prism-mcp-rs = { path = "../../../prism-mcp-rs", version = "0.1.0" }
+async-trait = "0.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.38", features = ["full"] }
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+[[bin]]
+name = "http-server"
+path = "src/main.rs"
